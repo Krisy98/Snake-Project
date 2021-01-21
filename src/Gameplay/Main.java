@@ -4,6 +4,8 @@ import Engine.CoreApplication;
 import Engine.Graphics.Graphics;
 import Engine.Physics.Physics;
 import Engine.Physics.PixelPhysics;
+import Gameplay.States.Menu;
+import Gameplay.States.State;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
@@ -38,14 +40,14 @@ public class Main extends CoreApplication{
         graphics = new Graphics(stage);
         physics = new PixelPhysics();
 
-        graphics.initiation("Snake Project", dimension.getWidth(), dimension.getHeight());
+        graphics.initiation("Snake Project", dimension.getWidth(), dimension.getHeight() - 10);
 
-        // initState(Menu menu)
+        initState(new Menu(this.graphics, this.physics));
 
 
-        //graphics.display();
+        graphics.display();
 
-        //timer = new AnimationTimer() { @Override public void handle(long now) { mainLoop(); } };
+        timer = new AnimationTimer() { @Override public void handle(long now) { mainLoop(); } };
     }
 
     public static void main(String[] args) { launch(args); }

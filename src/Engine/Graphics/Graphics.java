@@ -1,6 +1,6 @@
 package Engine.Graphics;
 
-import Engine.Entity.Text;
+import Engine.Entities.Text;
 import Engine.Events.EventManager;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
@@ -89,8 +89,16 @@ public class Graphics extends EventManager {
 
     public void setHeight(ImageView image, Double height){ image.setFitWidth(height); }
 
+    public void toBack(ImageView image){ image.toBack(); }
+
+    public void toFront(ImageView image){ image.toFront(); }
+
     public void setTypeFace(Text text, String fontName){ text.setTypeFace(fontName); }
 
     protected Group getRoot(){ return this.root; }
+
+    public Double getWidthScene(){ return this.root.getScene().getWidth(); }
+
+    public Double getHeightScene(){ return this.root.getScene().getHeight(); }
 
 }

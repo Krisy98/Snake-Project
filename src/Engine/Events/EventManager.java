@@ -1,9 +1,10 @@
 package Engine.Events;
 
-import Engine.Entity.Entity;
+import Engine.Entities.Entity;
 import Engine.Events.Controllers.Controller;
 import Engine.Events.Enumerations.KeyEventType;
 import Engine.Events.Enumerations.MouseEventType;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 
 public abstract class EventManager {
@@ -13,16 +14,16 @@ public abstract class EventManager {
     /**
      * Add a event to the graphic scene of type KeyEventType
      * If you want remove the event, set controller at null
-     * @param controller contains operations for each event released
+     * @param eventHandler contains operations for each event released
      * @param type define the event action
      */
-    public void setEventToScene(Controller controller, KeyEventType type){
+    public void setEventToScene(EventHandler eventHandler, KeyEventType type){
         switch (type){
             case PRESSED:
-                this.root.getScene().setOnKeyPressed(controller.getEventHandler());
+                this.root.getScene().setOnKeyPressed(eventHandler);
                 break;
             case RELEASED:
-                this.root.getScene().setOnKeyReleased(controller.getEventHandler());
+                this.root.getScene().setOnKeyReleased(eventHandler);
                 break;
         }
     }
@@ -30,19 +31,19 @@ public abstract class EventManager {
     /**
      * Add a event to the graphic scene of type MouseEventType
      * If you want remove the event, set controller at null
-     * @param controller contains operations for each event released
+     * @param eventHandler contains operations for each event released
      * @param type define the event action
      */
-    public void setEventToScene(Controller controller, MouseEventType type){
+    public void setEventToScene(EventHandler eventHandler, MouseEventType type){
         switch (type){
             case RELEASED:
-                this.root.getScene().setOnMouseReleased(controller.getEventHandler());
+                this.root.getScene().setOnMouseReleased(eventHandler);
                 break;
             case CLICKED:
-                this.root.getScene().setOnMouseClicked(controller.getEventHandler());
+                this.root.getScene().setOnMouseClicked(eventHandler);
                 break;
             case MOVE:
-                this.root.getScene().setOnMouseMoved(controller.getEventHandler());
+                this.root.getScene().setOnMouseMoved(eventHandler);
                 break;
         }
     }
@@ -51,16 +52,16 @@ public abstract class EventManager {
      * Add a event to the entity of type KeyEventType
      * If you want remove the event, set controller at null
      * @param entity is the entity concern by the action
-     * @param controller contains operations for each event released
+     * @param eventHandler contains operations for each event released
      * @param type define the event action
      */
-    public void setEvent(Entity entity, Controller controller, KeyEventType type){
+    public void setEvent(Entity entity, EventHandler eventHandler, KeyEventType type){
         switch (type){
             case PRESSED:
-                entity.getImage().setOnKeyPressed(controller.getEventHandler());
+                entity.getImage().setOnKeyPressed(eventHandler);
                 break;
             case RELEASED:
-                entity.getImage().setOnKeyReleased(controller.getEventHandler());
+                entity.getImage().setOnKeyReleased(eventHandler);
                 break;
         }
     }
@@ -69,19 +70,19 @@ public abstract class EventManager {
      * Add a event to the entity of type MouseEventType
      * If you want remove the event, set controller at null
      * @param entity is the entity concern by the action
-     * @param controller contains operations for each event released
+     * @param eventHandler contains operations for each event released
      * @param type define the event action
      */
-    public void setEvent(Entity entity, Controller controller, MouseEventType type){
+    public void setEvent(Entity entity, EventHandler eventHandler, MouseEventType type){
         switch (type){
             case RELEASED:
-                entity.getImage().setOnMouseReleased(controller.getEventHandler());
+                entity.getImage().setOnMouseReleased(eventHandler);
                 break;
             case CLICKED:
-                entity.getImage().setOnMouseClicked(controller.getEventHandler());
+                entity.getImage().setOnMouseClicked(eventHandler);
                 break;
             case MOVE:
-                entity.getImage().setOnMouseMoved(controller.getEventHandler());
+                entity.getImage().setOnMouseMoved(eventHandler);
                 break;
         }
     }

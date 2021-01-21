@@ -1,4 +1,4 @@
-package Engine.Entity;
+package Engine.Entities;
 
 import java.util.ArrayList;
 import java.util.List;

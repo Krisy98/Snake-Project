@@ -1,7 +1,7 @@
 package Engine.Physics;
 
-import Engine.Entity.Entity;
-import Engine.Entity.Text;
+import Engine.Entities.Entity;
+import Engine.Entities.Text;
 import javafx.geometry.Bounds;
 import java.util.ArrayList;
 import java.util.List;

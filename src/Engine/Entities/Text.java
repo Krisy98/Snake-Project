@@ -1,4 +1,4 @@
-package Engine.Entity;
+package Engine.Entities;
 
 import javafx.scene.text.Font;
 

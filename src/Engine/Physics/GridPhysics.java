@@ -1,7 +1,7 @@
 package Engine.Physics;
 
-import Engine.Entity.Entity;
-import Engine.Entity.Grid;
+import Engine.Entities.Entity;
+import Engine.Entities.Grid;
 
 import java.util.ArrayList;
 import java.util.List;

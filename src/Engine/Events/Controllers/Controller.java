@@ -2,17 +2,17 @@ package Engine.Events.Controllers;
 
 import javafx.event.EventHandler;
 
-public class Controller {
+public abstract class Controller {
 
     private EventHandler eventHandler;
-    private String name;
+    //private String name;
 
-    public Controller(String name){ this.name = name; }
+    //public Controller(String name){ this.name = name; }
 
-    public EventHandler getEventHandler(){ return eventHandler; }
+    //public String getName(){ return this.name; }
 
-    public void setEventHandler(EventHandler eventHandler){ this.eventHandler = eventHandler; }
+    public abstract void initEventHandlers();
 
-    public String getName(){ return this.name; }
+    public EventHandler getEventHandler(){ return this.eventHandler; }
 
 }

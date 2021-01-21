@@ -1,10 +1,10 @@
-package Engine.Entity;
+package Engine.Entities;
 
 import javafx.scene.image.ImageView;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Entity {
+public abstract class Entity {
 
     private ImageView image;
     private List<Double> speed;
