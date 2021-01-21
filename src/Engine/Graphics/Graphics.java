@@ -30,7 +30,8 @@ public class Graphics extends EventManager {
      * @param height of the scene
      */
     public void initiation(String title, Double width, Double height){
-        Scene scene = new Scene(this.root);
+        this.stage.setTitle(title);
+        Scene scene = new Scene(this.root, width, height);
 
         this.stage.setScene(scene);
     }
@@ -55,6 +56,11 @@ public class Graphics extends EventManager {
      * Open a window to show the graphic scene
      */
     public void display(){ this.stage.show(); }
+
+    /**
+     * Close the current window
+     */
+    public void close(){ this.stage.close(); }
 
     /**
      * Allow to display only the specified part of the imageView

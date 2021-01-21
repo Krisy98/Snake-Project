@@ -5,10 +5,13 @@ import Engine.Graphics.Graphics;
 import Engine.Physics.Physics;
 import Engine.Physics.PixelPhysics;
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
-public class MainClass extends CoreApplication{
+
+public class Main extends CoreApplication{
 
     private State state;
     private AnimationTimer timer;
@@ -20,29 +23,30 @@ public class MainClass extends CoreApplication{
     private void initState(State state){
         this.state = state;
 
-        state.functionalizeEntities();
-        state.functionalizeControllers();
+        state.operateEntities();
+        state.operateControllers();
     }
 
     private void removeState(){ state.destroy(); }
 
-    private void mainLoop(){
-        state.mainLoop();
-    }
+    private void mainLoop(){ state.mainLoop(); }
 
     @Override
     public void start(Stage stage) {
+        Rectangle2D dimension = Screen.getPrimary().getVisualBounds();
+
         graphics = new Graphics(stage);
         physics = new PixelPhysics();
 
+        graphics.initiation("Snake Project", dimension.getWidth(), dimension.getHeight());
+
         // initState(Menu menu)
 
-        timer = new AnimationTimer() {
-            @Override public void handle(long now) { mainLoop(); }
-        };
+
+        //graphics.display();
+
+        //timer = new AnimationTimer() { @Override public void handle(long now) { mainLoop(); } };
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 }

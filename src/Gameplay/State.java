@@ -17,14 +17,12 @@ public abstract class State {
         this.physics = physics;
     }
 
-    abstract void functionalizeControllers();
+    abstract void operateControllers();
 
-    void functionalizeEntities(){
-
+    void operateEntities(){
         for (Entity entity: entities) {
             graphics.addImage(entity.getImage());
         }
-
     }
 
     abstract void destroy();
