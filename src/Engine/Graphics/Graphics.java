@@ -1,7 +1,9 @@
 package Engine.Graphics;
 
+import Engine.Entities.Entity;
 import Engine.Entities.Text;
 import Engine.Events.EventManager;
+import javafx.collections.ObservableList;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -49,7 +51,13 @@ public class Graphics extends EventManager {
      * @param node the element to remove
      */
     public void remove(Node node){
-        this.root.getChildren().remove(node);
+        Group temp = this.root;
+        temp.getChildren().remove(node);
+        stage.setScene(new Scene(temp));
+    }
+
+    public void clear(){
+        this.root.getChildren().clear();
     }
 
     /**
@@ -100,5 +108,10 @@ public class Graphics extends EventManager {
     public Double getWidthScene(){ return this.root.getScene().getWidth(); }
 
     public Double getHeightScene(){ return this.root.getScene().getHeight(); }
+
+    public void replaceURL(Entity entity, ImageView image, String newPath){
+
+        image.setImage(new Image(newPath));
+    }
 
 }

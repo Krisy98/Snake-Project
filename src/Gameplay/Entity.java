@@ -1,10 +1,9 @@
 package Gameplay;
 
-import java.util.LinkedList;
 
 public class Entity extends Engine.Entities.Entity {
 
-    LinkedList<Double> originalDimension;
+    private String originalPath;
 
     /**
      * Entity's initialisation
@@ -17,19 +16,11 @@ public class Entity extends Engine.Entities.Entity {
      */
     public Entity(String path, Double positionX, Double positionY) {
         super(path, positionX, positionY);
+
+        this.originalPath = super.getImage().getImage().impl_getUrl();
     }
 
-    public void setOriginalDimension(Double width, Double height) {
-        LinkedList temp = new LinkedList();
+    public String getOriginalPath(){ return this.originalPath; }
 
-        temp.add(width);
-        temp.add(height);
-
-        this.originalDimension = temp;
-    }
-
-    public Double getOriginalWidth(){ return this.originalDimension.get(0);}
-
-    public Double getOriginalHeight(){ return this.originalDimension.get(1);}
 
 }

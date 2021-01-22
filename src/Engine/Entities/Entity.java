@@ -1,5 +1,6 @@
 package Engine.Entities;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,6 +9,7 @@ public abstract class Entity {
 
     private ImageView image;
     private List<Double> speed;
+    private String path;
 
     /**
      * Entity's initialisation
@@ -22,6 +24,8 @@ public abstract class Entity {
 
         image.setX(positionX);
         image.setY(positionY);
+
+        this.path = path;
 
         speed = new LinkedList<>();
 
@@ -54,5 +58,13 @@ public abstract class Entity {
     public Double getSpeedY(){ return this.speed.get(1); }
 
     public ImageView getImage(){ return this.image; }
+
+    public void setImage(Image img){
+        this.image.setImage(img);
+        this.path = img.impl_getUrl();
+
+    }
+
+    public String getPath(){ return this.path; }
 
 }
